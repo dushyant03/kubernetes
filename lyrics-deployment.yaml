@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyrics
+  labels:
+    app: lyrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lyrics
+  template:
+    metadata:
+      labels:
+        app: lyrics
+    spec:
+      containers:
+      - name: lyrics
+        image: dushyant03/lyrics-svc
+        ports:
+        - containerPort: 8080
